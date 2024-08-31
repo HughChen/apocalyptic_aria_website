@@ -3,60 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Game Website</title>
+    <title>Apocalyptic Aria</title>
     <style>
         body, html {
             height: 100%;
             margin: 0;
             font-family: Arial, sans-serif;
+            overflow: hidden;
         }
-        .bg-container {
+        .bg-slideshow {
             height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .bg-slideshow div {
+            height: 100%;
+            width: 100%;
+            position: absolute;
             background-position: center;
-            background-repeat: no-repeat;
             background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .bg-slideshow div.active {
+            opacity: 1;
+        }
+        .content-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: background-image 1s ease-in-out;
+            height: 100vh;
         }
         .content {
             text-align: center;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 20px;
+            padding: 30px;
+            color: black;
+            background-color: rgba(211, 211, 211, 0.95); /* More opaque light grey */
             border-radius: 10px;
+            max-width: 600px;
+            width: 90%; /* Responsive width */
+        }
+        button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .play-button {
+            background-color: #4CAF50;
+        }
+        .feedback-button {
+            background-color: #008CBA;
         }
     </style>
 </head>
 <body>
-    <div class="bg-container" id="bgContainer">
+    <div class="bg-slideshow">
+        <div class="active" style="background-image: url('images/game1.png');"></div>
+        <div style="background-image: url('images/game2.png');"></div>
+        <div style="background-image: url('images/game3.png');"></div>
+        <div style="background-image: url('images/game4.png');"></div>
+        <div style="background-image: url('images/game5.png');"></div>
+        <div style="background-image: url('images/game6.png');"></div>
+    </div>
+    <div class="content-wrapper">
         <div class="content">
             <h1>Welcome to My Game</h1>
-            <p>Experience the excitement of [Your Game Name]!</p>
-            <button>Play Now</button>
+            <p>Experience the excitement of Apocalyptic Aria!</p>
+            <button class="play-button">Play Now</button>
+            <button class="feedback-button">Give Feedback</button>
         </div>
     </div>
 
     <script>
-        const images = [
-            '/api/placeholder/1920/1080',
-            '/api/placeholder/1920/1080',
-            '/api/placeholder/1920/1080'
-        ];
-        let currentImageIndex = 0;
-        const bgContainer = document.getElementById('bgContainer');
+        const slides = document.querySelectorAll('.bg-slideshow div');
+        let currentSlide = 0;
 
-        function changeBackground() {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            bgContainer.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
         }
 
-        // Set initial background
-        bgContainer.style.backgroundImage = `url('${images[currentImageIndex]}')`;
-
-        // Change background every 5 seconds
-        setInterval(changeBackground, 5000);
+        setInterval(nextSlide, 5000); // Change slide every 5 seconds
     </script>
 </body>
 </html>
