@@ -69,14 +69,16 @@
             position: relative;
             max-width: 800px;
             margin: 0 auto;
+            text-align: center; /* Center the contents horizontally */
         }
         .gallery-image {
             display: none;
             max-width: 100%;
             height: auto;
+            margin: 0 auto; /* Center the image within its container */
         }
         .gallery-image.active {
-            display: block;
+            display: inline-block; /* Changed from block to inline-block */
         }
         .gallery-nav {
             position: absolute;
@@ -127,16 +129,15 @@
     <div class="container">
         <div class="game-window">
             <div class="gallery">
-                <img src="/api/placeholder/800/450" alt="Gameplay GIF 1" class="gallery-image active">
-                <img src="/api/placeholder/800/450" alt="Gameplay GIF 2" class="gallery-image">
-                <img src="/api/placeholder/800/450" alt="Gameplay GIF 3" class="gallery-image">
+                <img src="images/gameplay.gif" alt="Gameplay GIF" class="gallery-image active">
+                <!-- <img src="/api/placeholder/800/450" alt="Gameplay GIF 2" class="gallery-image"> -->
+                <!-- <img src="/api/placeholder/800/450" alt="Gameplay GIF 3" class="gallery-image"> -->
                 <a href="#" class="gallery-nav prev">❮</a>
                 <a href="#" class="gallery-nav next">❯</a>
             </div>
             <div class="gallery-dots"></div>
-            <p>Experience the perfect blend of modern gameplay and retro charm!</p>
-            <a href="#" class="btn">Download Demo</a>
-            <a href="#" class="btn">Watch Trailer</a>
+            <a href="#" class="btn">Play Demo</a>
+            <a href="#" class="btn">Give Feedback</a>
         </div>
         <div class="features">
             <div class="feature">
