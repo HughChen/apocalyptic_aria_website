@@ -112,22 +112,6 @@
         .dot.active {
             background-color: #717171;
         }
-        .video-container {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-        }
-
-        .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
         @media (max-width: 768px) {
             .feature {
                 flex-basis: 100%;
@@ -142,11 +126,36 @@
             <p>A new roguelike bullet heaven.</p>
         </div>
     </header>
-    <div class="video-container">
-        <video controls>
-            <source src="images/gameplay.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <div class="container">
+        <div class="game-window">
+            <div class="gallery">
+                <img src="images/gameplay.gif" alt="Gameplay GIF" class="gallery-image active">
+                <!-- <img src="/api/placeholder/800/450" alt="Gameplay GIF 2" class="gallery-image"> -->
+                <!-- <img src="/api/placeholder/800/450" alt="Gameplay GIF 3" class="gallery-image"> -->
+                <a href="#" class="gallery-nav prev">❮</a>
+                <a href="#" class="gallery-nav next">❯</a>
+            </div>
+            <div class="gallery-dots"></div>
+            <a href="#" class="btn">Play Demo</a>
+            <a href="#" class="btn">Feedback </a>
+        </div>
+        <div class="features">
+            <div class="feature">
+                <i>🕹️</i>
+                <h3>Classic Gameplay</h3>
+                <p>Enjoy familiar mechanics with a modern twist</p>
+            </div>
+            <div class="feature">
+                <i>🎨</i>
+                <h3>Pixel-Perfect Art</h3>
+                <p>Immerse yourself in beautifully crafted retro-style graphics</p>
+            </div>
+            <div class="feature">
+                <i>🎵</i>
+                <h3>Retro Soundtrack</h3>
+                <p>Get pumped with our synth-wave inspired music</p>
+            </div>
+        </div>
     </div>
     <script>
         let slideIndex = 1;
