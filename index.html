@@ -3,201 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apocalyptic Aria</title>
+    <title>My Game Website</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            line-height: 1.6;
-            padding: 0;
+        body, html {
+            height: 100%;
             margin: 0;
+            font-family: Arial, sans-serif;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            padding: 1em 0;
-            text-align: center;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 0.5em;
-        }
-        .game-window {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin: 20px 0;
-            text-align: center;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #e74c3c;
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-            font-weight: bold;
-            margin: 10px;
-        }
-        .btn:hover {
-            background-color: #c0392b;
-        }
-        .features {
+        .bg-container {
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 40px;
+            justify-content: center;
+            align-items: center;
+            transition: background-image 1s ease-in-out;
         }
-        .feature {
-            flex-basis: 30%;
+        .content {
             text-align: center;
-            margin-bottom: 20px;
-        }
-        .feature i {
-            font-size: 2em;
-            color: #2c3e50;
-        }
-        .gallery {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center; /* Center the contents horizontally */
-        }
-        .gallery-image {
-            display: none;
-            max-width: 100%;
-            height: auto;
-            margin: 0 auto; /* Center the image within its container */
-        }
-        .gallery-image.active {
-            display: inline-block; /* Changed from block to inline-block */
-        }
-        .gallery-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.7);
             color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        .gallery-nav.prev {
-            left: 10px;
-        }
-        .gallery-nav.next {
-            right: 10px;
-        }
-        .gallery-dots {
-            text-align: center;
-            margin-top: 10px;
-        }
-        .dot {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #bbb;
-            margin: 0 5px;
-            cursor: pointer;
-        }
-        .dot.active {
-            background-color: #717171;
-        }
-        @media (max-width: 768px) {
-            .feature {
-                flex-basis: 100%;
-            }
+            padding: 20px;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Apocalyptic Aria</h1>
-            <p>A new roguelike bullet heaven.</p>
-        </div>
-    </header>
-    <div class="container">
-        <div class="game-window">
-            <div class="gallery">
-                <img src="images/gameplay.gif" alt="Gameplay GIF" class="gallery-image active">
-                <!-- <img src="/api/placeholder/800/450" alt="Gameplay GIF 2" class="gallery-image"> -->
-                <!-- <img src="/api/placeholder/800/450" alt="Gameplay GIF 3" class="gallery-image"> -->
-                <a href="#" class="gallery-nav prev">❮</a>
-                <a href="#" class="gallery-nav next">❯</a>
-            </div>
-            <div class="gallery-dots"></div>
-            <a href="#" class="btn">Play Demo</a>
-            <a href="#" class="btn">Feedback </a>
-        </div>
-        <div class="features">
-            <div class="feature">
-                <i>🕹️</i>
-                <h3>Classic Gameplay</h3>
-                <p>Enjoy familiar mechanics with a modern twist</p>
-            </div>
-            <div class="feature">
-                <i>🎨</i>
-                <h3>Pixel-Perfect Art</h3>
-                <p>Immerse yourself in beautifully crafted retro-style graphics</p>
-            </div>
-            <div class="feature">
-                <i>🎵</i>
-                <h3>Retro Soundtrack</h3>
-                <p>Get pumped with our synth-wave inspired music</p>
-            </div>
+    <div class="bg-container" id="bgContainer">
+        <div class="content">
+            <h1>Welcome to My Game</h1>
+            <p>Experience the excitement of [Your Game Name]!</p>
+            <button>Play Now</button>
         </div>
     </div>
+
     <script>
-        let slideIndex = 1;
-        const slides = document.getElementsByClassName("gallery-image");
-        const dots = document.getElementsByClassName("dot");
+        const images = [
+            '/api/placeholder/1920/1080',
+            '/api/placeholder/1920/1080',
+            '/api/placeholder/1920/1080'
+        ];
+        let currentImageIndex = 0;
+        const bgContainer = document.getElementById('bgContainer');
 
-        function showSlides(n) {
-            if (n > slides.length) slideIndex = 1;
-            if (n < 1) slideIndex = slides.length;
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].classList.remove("active");
-            }
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].classList.remove("active");
-            }
-            slides[slideIndex-1].classList.add("active");
-            dots[slideIndex-1].classList.add("active");
+        function changeBackground() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            bgContainer.style.backgroundImage = `url('${images[currentImageIndex]}')`;
         }
 
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
+        // Set initial background
+        bgContainer.style.backgroundImage = `url('${images[currentImageIndex]}')`;
 
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        // Create dots
-        const dotsContainer = document.querySelector('.gallery-dots');
-        for (let i = 0; i < slides.length; i++) {
-            const dot = document.createElement('span');
-            dot.classList.add('dot');
-            dot.onclick = () => currentSlide(i + 1);
-            dotsContainer.appendChild(dot);
-        }
-
-        // Set up navigation
-        document.querySelector('.prev').onclick = () => plusSlides(-1);
-        document.querySelector('.next').onclick = () => plusSlides(1);
-
-        // Initialize the slideshow
-        showSlides(slideIndex);
+        // Change background every 5 seconds
+        setInterval(changeBackground, 5000);
     </script>
 </body>
 </html>
