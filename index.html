@@ -35,17 +35,18 @@
         .content-wrapper {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Changed from center to flex-start */
             height: 100vh;
+            padding-top: 50px; /* Added padding to the top */
         }
         .content {
             text-align: center;
             padding: 30px;
             color: black;
-            background-color: rgba(211, 211, 211, 0.95); /* More opaque light grey */
+            background-color: rgba(255, 255, 255, 0.6);
             border-radius: 10px;
             max-width: 600px;
-            width: 90%; /* Responsive width */
+            width: 90%;
         }
         button {
             border: none;
@@ -79,7 +80,7 @@
     <div class="content-wrapper">
         <div class="content">
             <h1>Welcome to My Game</h1>
-            <p>Experience the excitement of Apocalyptic Aria!</p>
+            <p>Try out Apocalyptic Aria!</p>
             <button class="play-button">Play Now</button>
             <button class="feedback-button">Give Feedback</button>
         </div>
